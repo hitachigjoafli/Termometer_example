@@ -18,5 +18,5 @@ Code for the microcontroller
 
 ## Explanation video
 A video made in swedish where i explain the code.
-[![Titta på videon](https://web.microsoftstream.com/embed/video/4e425f58-a8e8-4895-a923-fb813450cba0/maxresdefault.jpg)](https://web.microsoftstream.com/embed/video/4e425f58-a8e8-4895-a923-fb813450cba0)
+[Titta på videon](https://web.microsoftstream.com/embed/video/4e425f58-a8e8-4895-a923-fb813450cba0)
 
