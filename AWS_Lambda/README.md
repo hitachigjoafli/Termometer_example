@@ -27,3 +27,13 @@
     "updateInterval": 500
   }
 }
+
+
+## Möjliga Fel
+
+När du testar, testa detta.
+let body = event.body
+Istället för
+let body = JSON.parse(event.body);
+
+Detta beror på att koden försöker klistra in en string och göra om den till JSON.
