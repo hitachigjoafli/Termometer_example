@@ -17,6 +17,10 @@ exports.handler = function index(e, ctx, callback) {
         });
         return false;
     }
+    
+        if (e.body) {
+        const body = JSON.parse(e.body); //Avaktivera Jsonparse om du testar i lambda
+
 
     console.log(e);
     var params = {
@@ -37,11 +41,11 @@ exports.handler = function index(e, ctx, callback) {
             "#h": "Humidity",
         },
         ExpressionAttributeValues: {         //Dessa värden är de som kommer att ändras/läggas till. 
-            ":y": [e.body.temperature], //[] runt värdet gör det till en lista, detta behövs då list_append tar bara emot listor och sammanfogar dem.
-            ":i": [e.body.humidity],
+            ":y": [body.temperature], //[] runt värdet gör det till en lista, detta behövs då list_append tar bara emot listor och sammanfogar dem.
+            ":i": [body.humidity],
             ":o": [new Date().toUTCString()],
-            ":t": e.body.temperature,
-            ":h": e.body.humidity,
+            ":t": body.temperature,
+            ":h": body.humidity,
             ":u": new Date().toUTCString()
         },
         ReturnValues: "UPDATED_NEW" //Man skickar ett returnvalue för att den ska veta att den ska uppdateras. 
@@ -74,5 +78,5 @@ exports.handler = function index(e, ctx, callback) {
         }
 
     });
-
+}
 }

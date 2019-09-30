@@ -31,6 +31,23 @@ function HamtaAllaEnheter(e, callback) {
 }
 
 function HamtaEnEnhet(e, callback) {
+
+    if (!e.queryStringParameters.hasOwnProperty("name")) {
+        callback(null, {
+            statusCode: 400, // Bad Request
+            headers: {
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Origin": "*" // Required for CORS support to work
+
+            },
+            body: JSON.stringify({
+                message: "No 'name' query string provided. Examine your code for sending a connected device name.",
+                e: e.queryStringParameters
+            })
+        });
+        return false;
+    }
+
     var params = {
         Key: {
             "Name": e.queryStringParameters.name
@@ -73,30 +90,17 @@ function HamtaEnEnhet(e, callback) {
     });
 
 }
+const config = {
+    allDataregex: /^(?:true|false)$/
+};
 
 exports.handler = function (e, ctx, callback) {
 
-
-    if (!e.queryStringParameters.hasOwnProperty("name")) {
-        callback(null, {
-            statusCode: 400, // Bad Request
-            headers: {
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Origin": "*" // Required for CORS support to work
-
-            },
-            body: JSON.stringify({
-                message: "No 'name' query string provided. Examine your code for sending a connected device name."
-            })
-        });
-        return false;
-    }
-
-    if (e.queryStringParameters.hasOwnProperty("allData")) {//Om parametern allData skickas med
-        if (e.queryStringParameters.allData == true) { //Om parameteren är true så vill vi hämta alla Enheter
-
+    if (e.queryStringParameters.hasOwnProperty("allData")) {
+        // Validate the value of the query
+        if (config.allDataregex.test(e.queryStringParameters.allData)) { //Om parameteren är true så vill vi hämta alla Enheter
             HamtaAllaEnheter(e, callback);
-        } else {// Är den false så ska vi hämta en enhet
+        } else { // Är den false så ska vi hämta en enhet
 
             HamtaEnEnhet(e, callback);
         }
