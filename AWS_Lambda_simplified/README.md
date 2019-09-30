@@ -1,5 +1,5 @@
 # Dynamodb
-![Querystring](DynamoDb.png)
+![Querystring](https://github.com/abbjoafli/Termometer_example/blob/master/AWS_Lambda_simplified/DynamoDb.PNG?raw=true)
 
 # TEST koder för Lambda och API Gateway
 ## AddTempDevice.js  - Skapa enhet
@@ -139,7 +139,7 @@ Detta beror på att koden försöker klistra in en string och göra om den till 
 ## Möjliga fel
 ### Ingen Query string
 Som du ser i bilden nedan är det en bra ide att llägga in URL Query String Paramtern name om man vill kunna skicka med det värdet till lambda funktionen. Man kan även klicka i required så slipper man ha en kontrollfunktion för name i lambda koden.
-![Querystring](ApiGATEWAY-Querystring.png)
+![Querystring](https://github.com/abbjoafli/Termometer_example/blob/master/AWS_Lambda_simplified/APIGATEWAY-Querystring.PNG?raw=true)
 
 ### Testvärden med Body
 Om du varken i API Gateway eller postman kan testa/köra patch och post som innehåller en body så får du komma ihåg att man måste parsa värdet med json, detta gör man genom att skriva t.ex
