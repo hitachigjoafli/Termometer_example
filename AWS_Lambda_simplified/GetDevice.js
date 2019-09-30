@@ -33,7 +33,6 @@ exports.handler = function (e, ctx, callback) {
             if (err) {
                 callback(err, null);
             } else {
-                console.log(data);
                 if (data.hasOwnProperty("Item")) {
                     callback(null, {
                         statusCode: 200, // Bad Request
@@ -43,7 +42,9 @@ exports.handler = function (e, ctx, callback) {
                         },
                         body: JSON.stringify({
                             message: "Enheten finns reggad.",
-                            isRegistered: true
+                            isRegistered: true,
+                            UpdateFrequens: data.Item.UpdateFrequens
+
                         })
                     });
                 } else {
