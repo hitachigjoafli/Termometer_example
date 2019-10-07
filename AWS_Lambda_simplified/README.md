@@ -4,57 +4,82 @@
 # TEST koder för Lambda och API Gateway
 ## AddTempDevice.js  - Skapa enhet
 ### Laggtilltest
+```javascript
 {
   "queryStringParameters": {
   "name":"Berras IOT mätare"
   }
 }
+```
+
 ### Errortest
+```javascript
 {
   "queryStringParameters": {
   }
 }
+```
+
 
 ## GetDevice.js - Titta om enhet finns
 ### Finnstest
+```javascript
 {
   "queryStringParameters": {
   "name":"Berras IOT mätare"
   }
 }
+```
+
 ### FinnsInteTest
+```javascript
 {
   "queryStringParameters": {
   "name":"Ankis IOT mätare"
   }
 }
+```
+
 ### Errortest
+```javascript
 {
   "queryStringParameters": {
   }
 }
+```
+
 
 ## GetDeviceData.js - Hämta data, alla eller bara en
 ### HamtaEn
+```javascript
 {
   "queryStringParameters": {
   "name":"Berras IOT mätare"
   }
 }
+```
+
 ### HamtaEnMedAllData
+```javascript
 {
   "queryStringParameters": {
     "name": "Berras IOT mätare",
     "allData": false
   }
 }
+```
+
 ### HamtaAll
+```javascript
 {
   "queryStringParameters": {
     "allData": true
   }
 }
+```
+
 ### Errortest
+```javascript
 {
   "queryStringParameters": {
   }
@@ -64,11 +89,14 @@
         "allData": false
   }
 }
+```
+
 
 
 ## UpdateDevice - Uppdatera enhetsdata
 
 ### Uppdatera
+```javascript
 {
   "queryStringParameters": {
     "name": "Berras IOT mätare"
@@ -79,10 +107,13 @@
     "updateFrequens": 5000
   }
 }
+```
+
 
 ## UpdateDeviceData - Uppdatera värdedata
 
 ### Uppdatera
+```javascript
 {
   "queryStringParameters": {
     "name": "Berras IOT mätare"
@@ -92,23 +123,31 @@
     "humidity": 76
   }
 }
+```
+
 ## ClearDeviceData - Tömmer värdedata
 
 ### Tom
+```javascript
 {
   "queryStringParameters": {
     "name": "Berras IOT mätare"
   }
 }
+```
+
 
 ## DeleteDevice - Ta bort enhet
 
 ### Ta bort
+```javascript
 {
   "queryStringParameters": {
     "name": "Berras IOT mätare"
   }
 }
+```
+
 
 
 ## Möjliga Fel
