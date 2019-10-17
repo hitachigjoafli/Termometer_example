@@ -11,6 +11,8 @@
 
     <v-content>
     <div v-if="addnew!==true">
+      <!-- AVAKTIVERA FÖR ATT VISA EN CHART!!! -->
+      <!-- <Enchart/> -->
     <v-layout row wrap>
          <v-flex xs12>
     <GetDevices Rubrik="Oregisterade enheter" />
@@ -30,11 +32,13 @@
 
 <script>
 import GetDevices from './components/GetDevices'
+import Enchart from './components/Enchart'
 
 export default {
   name: 'App',
   components: {
-    GetDevices
+    GetDevices,
+    Enchart
   },
   data () {
     return {
